@@ -45,7 +45,11 @@ list_has_four(Cells, Color) ->
 -spec drop_piece(board(), integer(), connect4_player:color()) -> board().
 drop_piece(Board, Column, Color) ->
   Row = find_last_empty_row(Board, Column),
-  connect4_list:setnth(Row, Board, connect4_list:setnth(Column, lists:nth(Row, Board), Color)).
+  set_cell(Board, Row, Column, Color).
+
+-spec set_cell(board(), integer(), integer(), cell()) -> board().
+set_cell(Board, Row, Column, Cell) ->
+  connect4_list:setnth(Row, Board, connect4_list:setnth(Column, lists:nth(Row, Board), Cell)).
 
 -spec find_last_empty_row(board(), integer()) -> integer().
 find_last_empty_row(Board, Column) ->
