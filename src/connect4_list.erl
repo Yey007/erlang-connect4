@@ -1,4 +1,4 @@
--module(list_util).
+-module(connect4_list).
 
 -export([setnth/3]).
 
